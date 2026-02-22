@@ -1,19 +1,20 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 
 const categories = [
-  { title: "FPV & Drones", href: "/robotics/category/fpv-drones", img: "/robotics/categories/fpv.jpg" },
-  { title: "RC Planes", href: "/robotics/category/rc-planes", img: "/robotics/categories/rc-plane.jpg" },
-  { title: "Motors & Servos", href: "/robotics/category/motors-servos", img: "/robotics/categories/motors-servos.jpg" },
-  { title: "Controllers & ESC", href: "/robotics/category/controllers-esc", img: "/robotics/categories/controller-esc.jpg" },
-  { title: "Cameras & FPV Gear", href: "/robotics/category/cameras-fpv", img: "/robotics/categories/cameras-fpv.jpg" },
+  { title: "FPV & Drones", slug: "fpv-drones", img: "/robotics/categories/fpv.jpg" },
+  { title: "RC Planes", slug: "rc-planes", img: "/robotics/categories/rc-plane.jpg" },
+  { title: "Motors & Servos", slug: "motors-servos", img: "/robotics/categories/motors-servos.jpg" },
+  { title: "Controllers & ESC", slug: "controllers-esc", img: "/robotics/categories/controller-esc.jpg" },
+  { title: "Cameras & FPV Gear", slug: "cameras-fpv-gear", img: "/robotics/categories/cameras-fpv.jpg" },
 
-  { title: "Batteries & Power", href: "/robotics/category/batteries-power", img: "/robotics/categories/batteries.jpg" },
-  { title: "Boards & Sensors", href: "/robotics/category/boards-sensors", img: "/robotics/categories/boards-sensors.jpg" },
-  { title: "Frames & Mechanics", href: "/robotics/category/frames-mechanics", img: "/robotics/categories/frames.jpg" },
-  { title: "Wires, Connectors & Tools", href: "/robotics/category/wires-tools", img: "/robotics/categories/wires-tools.jpg" },
-  { title: "DIY Kits & Combos", href: "/robotics/category/diy-kits", img: "/robotics/categories/diy-kits.jpg" },
+  // Only include categories that exist in roboticsProducts.ts
+  { title: "Boards & Sensors", slug: "boards-sensors", img: "/robotics/categories/boards-sensors.jpg" },
+  { title: "Frames & Mechanics", slug: "frames-mechanics", img: "/robotics/categories/frames.jpg" },
+  { title: "Wires & Connectors", slug: "wires-connectors", img: "/robotics/categories/wires-tools.jpg" },
+  { title: "DIY Kits & Combos", slug: "diy-kits-combos", img: "/robotics/categories/diy-kits.jpg" },
 ];
 
 export default function RoboticsCategories() {
@@ -32,9 +33,9 @@ export default function RoboticsCategories() {
           }}
         >
           {categories.map((cat) => (
-            <a
-              key={cat.title}
-              href={cat.href}
+            <Link
+              key={cat.slug}
+              href={`/Robotics/${cat.slug}`}   // matches your folder casing
               style={{
                 borderRadius: 16,
                 overflow: "hidden",
@@ -45,12 +46,12 @@ export default function RoboticsCategories() {
                 transition: "all 0.2s ease",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.transform = "translateY(-6px)";
-                e.currentTarget.style.boxShadow = "0 12px 30px rgba(0,0,0,0.6)";
+                (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(-6px)";
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 12px 30px rgba(0,0,0,0.6)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.transform = "translateY(0)";
-                e.currentTarget.style.boxShadow = "none";
+                (e.currentTarget as HTMLAnchorElement).style.transform = "translateY(0)";
+                (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none";
               }}
             >
               <div style={{ position: "relative", width: "100%", height: 140 }}>
@@ -68,7 +69,7 @@ export default function RoboticsCategories() {
                   Browse →
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

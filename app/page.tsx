@@ -19,7 +19,6 @@ export default function HomePage() {
       <HomeHowItWorks />
       <HomeShowcase />
       <HomeCTA />
-      <Footer />
 
     </>
   );
