@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
 
   // Allow external images (Unsplash etc.)
   images: {
-    domains: ["images.unsplash.com"],
+    domains: ["images.unsplash.com", "plus.unsplash.com"],
   },
 
   // Helpful when deploying (Vercel / Node)
@@ -14,6 +14,7 @@ const nextConfig: NextConfig = {
 
   // Optional: keep trailing slashes consistent
   trailingSlash: false,
+
 
   // Optional: better DX with Turbopack
   experimental: {

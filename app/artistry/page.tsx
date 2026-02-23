@@ -14,6 +14,6 @@ export default function ArtistryPage() {
       <ArtistryExploreBySpace />
       <ArtistryWhy />
       <ArtistryCTA />
-      </main>
+    </main>
   );
 }
